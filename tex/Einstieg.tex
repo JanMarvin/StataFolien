@@ -1,0 +1,325 @@
+%%%
+%%% Einstieg
+%%% 
+\part{Einstieg}
+\begin{frame}
+\thispagestyle{empty}
+\textbf{\huge{Einstieg}}
+\end{frame}
+
+\begin{frame}{Einstieg Inhalt}
+ \tableofcontents
+\end{frame}
+
+
+\section{Datentypen}
+\subsection{Syntaxdateien}
+\begin{frame}[fragile]{Syntax}
+ Wir schreiben Syntax.
+ \begin{itemize}
+  \item Reproduzierbar!
+  \item Weniger \dots
+  \begin{itemize}
+   \item klicken
+   \item wiederholen
+   \item fehleranfällig
+  \end{itemize}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Syntaxdateien}
+  \begin{itemize}
+  \item Sytax in Stata in do-Dateien. \index{do-Files}
+  \item Aufruf des Editors \index{do-Files!doedit}
+  \begin{lstlisting}
+  doedit
+  \end{lstlisting}
+  \item Dateiendung von do-Dateien ist .do.
+  \item do-Dateien sind mit jedem Texteditor zu öffnen und zu bearbeiten.
+  \end{itemize}
+\end{frame}
+
+\subsection{Datendateien}
+\begin{frame}{Sekundärdaten}
+ \begin{itemize}
+  \item Primärdaten
+  \item Sekundärdaten
+ \end{itemize}
+
+ \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (7.5,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{Wir nutzen Daten. Wir erheben keine Daten. Wir erstellen und editieren keine Daten.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+\begin{frame}{dta-Dateien}
+\index{dta-Dateien}
+  \begin{itemize}
+  \item Daten werden als dta-Dateien gespeichert
+  \item Daten enden auf .dta
+  \item Stata Datenobjekte können von Stata und einigen Statistik-Programmen z. B. R (\cite{R13}) gelesen werden.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Daten einlesen}
+  \begin{itemize}
+    \item Verzeichnis anzeigen \index{Verzeichnis!dir}
+    \begin{lstlisting}
+    dir
+    \end{lstlisting}
+    \item Verzeichnis wechseln \index{Verzeichnis!cd}
+    \begin{lstlisting}
+    cd "D:/Daten/data/"
+    \end{lstlisting}
+    \item Daten laden \index{use} \index{Laden}
+    \begin{lstlisting}
+    use <dateiname.dta>
+    \end{lstlisting}
+  \end{itemize}
+  \index{Umlaute}
+  \index{Leerzeichen}
+  
+   \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (7.5,-0.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{Vermeiden Sie Ordner- und Dateinamen mit Umlauten oder Leerzeichen. Stata mag das nicht.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+  
+\end{frame}
+
+\section{do-Files}
+\begin{frame}[fragile]{do-File I}
+  \begin{itemize}
+  \item Dateikopf: Dateiname, der Name des Erstellers, das Erstellungsdatum, eine kurze Information, was die Datei macht und bei längeren Dateien ein kurzes Inhaltsverzeichnis. 
+  \index{Dateikopf}
+  \index{do-Files}
+  \index{Kommentar}
+    
+  \begin{lstlisting}
+  /*
+  Name: read-soep.do
+  Autor: Garbuszus
+  Datum: 2013-02-28
+  Inhalt: Einlesen der SOEP-Daten
+  */
+  \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{do-File Ia}
+Dokumentieren Sie! \index{Kommentar}
+\begin{itemize}
+\item Teamarbeit
+\item Vergesslichkeit
+\end{itemize}
+
+  
+     \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (7.5,-0.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{Niemand möchte Ihre Syntax studieren, dokumentieren Sie. Dokumentieren Sie viel und gründlich, Sie werden vergessen!}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{do-File Ib}
+\begin{itemize} \index{Kommentar!kommentieren}
+   \item \texttt{/*} (Anfang) und \texttt{*/} (Ende) definieren einen Kommentar. Alternativ geht das auch zu Beginn einer Zeile mit \texttt{*} oder nach einem Befehl mit \texttt{//}
+  
+  \begin{lstlisting}
+  ** Wir schreiben den Dozenten zuliebe Code fuer Version 12
+  version 12 // Wir haben zwar Stata 13, die aber nicht.
+  \end{lstlisting}
+  \item Befehle in Kommentaren werden nicht ausgeführt!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{do-File Ic}
+\begin{itemize}
+  \item Darunter folgt noch
+  \index{clear all}
+  \index{set more off}
+  
+  \begin{lstlisting}
+  ** Den Speicher leeren
+  clear all
+  ** more Funktion abschalten
+  set more off
+  \end{lstlisting}
+  \end{itemize}
+      
+   \begin{tikzpicture}[transform shape, rotate=5, overlay]
+\node at (8.5,-.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{clear all löscht alles aus dem Speicher, damit ist sichergestellt, dass alles was ausgeführt wird, auf das/die ausgeführte/n do-File/s zurück geht.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{do-File II}
+ \begin{itemize}
+  \item Testdaten eingelesen. \index{Laden!use} \index{Laden}
+
+  \begin{lstlisting}
+  use "D:/Daten/testdaten.dta"
+  \end{lstlisting}
+
+  \item Beschreiben \index{Beschreiben!describe}
+  
+  \begin{lstlisting}
+  describe
+  \end{lstlisting}
+ 
+  \item Hilfe zum Befehl \index{Hilfe!help}
+  \begin{lstlisting}
+  help describe
+  \end{lstlisting}
+
+ \end{itemize}
+\end{frame}
+
+\subsection{help}
+\begin{frame}{help} \index{Hilfe}\index{Hilfe!help}
+\begin{scriptsize}
+  \texttt{\underline{tab}ulate \textcolor{Statakeywords}{varname1} \textcolor{Statakeywords}{varname2} [\textcolor{Statakeywords}{if}] [\textcolor{Statakeywords}{in}] [\textcolor{Statakeywords}{weight}] [, options]} \\ \vspace{.5cm}
+
+  \begin{tabular}{ll}
+  options & Description \\
+  \midrule
+  Main & \\
+  chi2 &               report Pearson's chi-squared \\
+  exact[(\#)] &         report Fisher's exact test \\
+  \dots & \\
+  \end{tabular} \vspace{.5cm}
+
+  \texttt{\underline{reg}ress \textcolor{Statakeywords}{depvar} [\textcolor{Statakeywords}{indepvars}] [\textcolor{Statakeywords}{if}] [\textcolor{Statakeywords}{in}] [\textcolor{Statakeywords}{weight}] [, options]} \\
+  \vspace{.5cm}
+  
+  \begin{tabular}{ll}
+  options & Description \\
+  \midrule
+  Model & \\
+  noconstant & suppress constant term \\
+  hascons & has user-supplied constant \\
+  \dots & \\
+  \end{tabular}
+
+\end{scriptsize}
+\end{frame}
+
+\subsection{findit}
+\begin{frame}[fragile]{findit} \index{Suchen!findit}
+Und wie kommt man an Befehle?
+\begin{lstlisting}
+  findit describe
+\end{lstlisting}
+
+   \begin{tikzpicture}[transform shape, rotate=5, overlay]
+\node at (8.5,-.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{findit kann Hinweise liefern, muss aber nicht. Suchen Sie in jedem Fall nach den englischen Fachbegriffen.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{do-File III}
+ Verschiedene Aufgaben, verschiedene do-Files. \index{do-Files}
+ \begin{itemize}
+  \item Daten einlesen
+  \item Aufbereitung
+  \item Deskriptive Auswertungen
+  \item usw.
+ \end{itemize}
+ 
+    \begin{tikzpicture}[transform shape, rotate=5, overlay]
+\node at (8.5,-.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{Nicht jedes do-File wird immer gebraucht. Lesen Sie z.~B. einmal die Daten ein, bereiten Sie sie einmal auf. Das muss nicht für jede neue Kreuztabelle erfolgen. Zeit ist Geld!}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}[fragile]{do-File IV}
+
+ do-Files können ihrerseits auch aus do-Files aufgerufen werden \index{do-Files} \index{do}
+\begin{lstlisting}
+  ** do-Files aufrufen
+  do DatenEinlesen.do
+  do Aufbereitung.do
+  do DeskriptiveAuswertungen.do
+\end{lstlisting}
+\begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (7.5,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{Dadurch wird die Syntax schlanker und die do-Files werden garantiert in der richtigen Reihenfolge aufgerufen.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+
+
+\section{Arbeiten}
+\subsection{Übersicht}
+\begin{frame}[fragile]{Übersicht}
+Übersicht der eingelesene Daten \index{Beschreiben} \index{Beschreiben!describe} \index{Beschreiben!codebook} \index{list} \index{browse} \index{Hilfe!help}
+
+  \begin{lstlisting}
+  describe
+  codebook
+  list
+  browse
+  \end{lstlisting}
+  
+Nach \texttt{help describe} kennt man
+  \begin{lstlisting}
+  describe, simple
+  \end{lstlisting}
+  
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8.5,-.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.25\textwidth}
+    \tiny\textcolor{black}{\texttt{In der Hilfe steht, ob einem Befehl noch einzelne Variablen oder Variablenlisten übergeben werden können.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+
+\end{frame}
+
+\subsection{Deskriptiv}
+\begin{frame}[fragile]{Deskriptive Auswertungen}
+Deskriptive Auswertungen von Variablen\footnote{\texttt{var1} und \texttt{var2} sind hier Platzhalter.}
+
+\index{Tabelle!tabulate} \index{Beschreiben!summarize} \index{Hilfe!help}
+  \begin{lstlisting}
+  tabulate var1
+  tabulate var2
+  tabulate var1 var2
+  summarize var1
+  summarize var1-var4
+  \end{lstlisting}
+
+Nach \texttt{help summarize} kennt man
+  \begin{lstlisting}
+  summarize var1, detail
+  \end{lstlisting}
+
+\end{frame}

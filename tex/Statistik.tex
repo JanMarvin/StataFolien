@@ -1,0 +1,143 @@
+%%%
+%%% Statistik
+%%%
+\part{Statistik}
+\begin{frame}
+\thispagestyle{empty}
+\textbf{\huge{Statistik}}
+\end{frame}
+
+\begin{frame}{Statistik Inhalt}
+ \tableofcontents
+\end{frame}
+
+
+\section{Maßzahlen}
+\begin{frame}[fragile]{Maßzahlen I}
+Arithmetisches Mittel und ein paar Maßzahlen \index{Mittelwert!mean} \index{Beschreiben!summarize} \index{Beschreiben!detail} \index{Mittelwert} \index{Maßzahlen}
+\begin{lstlisting}
+  mean sex
+  summarize sex
+  summarize sex, detail
+\end{lstlisting}
+
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{mean gibt den Standardfehler aus: $s/\sqrt{n}$. summarize gibt die Standardabweichung aus: $\sqrt{\sum(x-\bar{x})^2)/n}$.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}[fragile]{Maßzahlen II}
+Minimum, Maximum, arithmetisches Mittel, Median, Anzahl und Quartile. \index{Minimum} \index{Minimum!min} \index{Maximum} \index{Maximum!max} \index{Mittelwert!mean} \index{Mittelwert} \index{Mittelwert!Arithmetisches Mittel} \index{Mittelwert!Median} \index{Quantile} \index{tabstat} \index{Range} \index{Range!range} \index{Quantile!q}
+\begin{lstlisting}
+  tabstat age, statistic(min max mean median p50)
+  tabstat age, statistic(min max range mean count q) by(sex)
+\end{lstlisting}
+
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{range = max - min}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}[fragile]{Maßzahlen III}
+Standardabweichung, Standardfehler, Varianz und Interquartilsabstand. \index{Standardabweichung} \index{Standardfehler} \index{Varianz} \index{Interquartilsabstand} \index{tabstat} \index{Standardabweichung!sd} \index{Varianz!var} \index{Standardfehler!sem} \index{Interquartilsabstand!iqr} \index{Quantile!q} \index{Schiefe} \index{Wölbung} \index{Schiefe!skewness} \index{Wölbung!kurtosis}
+\begin{lstlisting}
+ tabstat age, statistic(sd sem var q iqr)
+\end{lstlisting}
+Schiefe und Wölbung
+\begin{lstlisting}
+  tabstat age, statistics(skewness kurtosis)
+\end{lstlisting}
+
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{iqr = q3 - q1}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+\section{Tabellen}
+\begin{frame}[fragile]{Tabellen} \index{Tabelle!tab} \index{Tabelle!tab, summarize()} \index{Tabelle}
+Wir hatten bereits \texttt{summarize} und \texttt{tab}, jetzt kombinieren wir
+\begin{lstlisting}
+  tab sex, summarize(age)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Kreuztabellen}
+\begin{frame}[fragile]{Kreuztabellen} \index{Tabelle!tab} \index{Tabelle!tab1} \index{Tabelle!tab2} \index{Tabelle!Kreuztabelle}
+Kreuztabellen erzeugen mit
+\begin{lstlisting}
+  tab sex east
+\end{lstlisting}
+Weitere Tabellen
+\begin{lstlisting}
+  ** Tabellen von jeder der drei Variablen
+  tab1 sex age edu
+  ** Kreuztabellen ab bc ac
+  tab2 sex age edu
+\end{lstlisting}
+\end{frame}
+
+\subsection{Chi, V und Phi}
+\begin{frame}[fragile]{Kreuztabellen II} \index{Tabelle!Kreuztabelle} \index{Tabelle!$\chi^2$} \index{Tabelle!chi-square} \index{Tabelle!chi} \index{Tabelle!tab} \index{Tabelle!Cramers V} \index{Tabelle!tab exp} \index{Tabelle!tab col} \index{Tabelle!tab row}
+Die Statistik I Vorlesung rekapitulieren, wir machen ein paar Tests \footnote{Oder nachschlagen z.~B. bei \textcite{Krebs10} oder \textcite{Agresti09}. }
+\begin{lstlisting}
+  ** chi-quadrat
+  tab sex east, chi
+  ** cramers v
+  tab sex east, V
+  ** wer per Hand nachrechnen will
+  tab sex east, exp col row
+  ** phi manuell ausrechnen
+  di (934*426-441*1026) / (1375*1452*1960*867)^(1/2)
+  di 2827 *(-.02963311)^2 // == chi^2
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Numlabel}
+Falls man die numerischen Werte auch im Label haben möchte \index{Label!numlabel}
+\begin{lstlisting}
+  ** numerische Label an für alle Variablen
+  numlabel _all, add
+  ** numerische Label aus
+  numlabel _all, remove
+\end{lstlisting}
+
+\end{frame}
+
+\section{Inferenz}
+\begin{frame}[fragile]{T-Test} \index{T-Test!ttest} \index{T-Test}
+Teststatistik
+\begin{lstlisting}
+  ** Vergleich Männer Frauen in West Ost
+  tab sex, sum(east)
+  ttest sex, by(east)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Und noch viel mehr \dots} \index{Regression!regress} \index{Regression!logit} \index{Regression!mlog}
+Regression
+\begin{lstlisting}
+  regress
+  logit
+  mlog
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\thispagestyle{empty}
+ Fortsetzung folgt.
+\end{frame}
