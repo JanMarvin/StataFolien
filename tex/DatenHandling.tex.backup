@@ -241,11 +241,12 @@ This means
 
 \begin{frame}[fragile]{merge IV}\index{Merge!\_merge}\index{Merge!merge}
 \begin{minipage}{11cm}
-A new variable \texttt{\_merge} is created containing the \texttt{\_merge==} values. For now we remove all cases where we could not find a match from \texttt{using} which is \texttt{\_merge==2}. These are potentially problematic as we have no information about these persons sex or year of birth. Lucky at our current stage these are zero cases. Afterwards we remove \texttt{\_merge}.
+A new variable \texttt{\_merge} is created containing the \texttt{\_merge==} values. For now w remove all cases where we could not find a match from \texttt{using} which is \texttt{bep}.
+Es gibt nun verschiedene Möglichkeiten. Im Folgenden werden alle \texttt{\_merge==2} Fälle gelöscht. Beobachtungen also, die nicht in \textbf{ppfad} vorkommen, wohl aber im hinzugespielten Datenfile. \texttt{\_merge==1} würde die Fälle löschen, bei denen ein Eintrag aus \textbf{ppfad} nicht im hinzugespielten Datenfile ist, \texttt{\_merge==3}, wenn Beobachtungen übereinstimmen.
 \begin{lstlisting}
-  ** Drop if using does not match master
+  ** Drop wenn using nicht in master ist
   drop if _merge==2
-  ** drop _merge
+  ** _merge droppen
   drop _merge
 \end{lstlisting}
 \end{minipage}
@@ -254,7 +255,7 @@ A new variable \texttt{\_merge} is created containing the \texttt{\_merge==} val
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{The coice which merge is dropped is depending on the analysis.}}
+    \tiny\textcolor{black}{\texttt{Wann welcher merge gewählt wird, hängt nicht unerheblich von der dahinterliegenden Fragestellung ab.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -262,10 +263,10 @@ A new variable \texttt{\_merge} is created containing the \texttt{\_merge==} val
 \end{frame}
 
 \begin{frame}[fragile]{merge V} \index{Merge!merge} \index{Merge!merge, keepusing}
-Example: merge with the generated variable highest educational achievement \texttt{bepsbil} from data-file \textbf{bepgen}.
+Beispiel: merge mit der generierten Variable des höchsten Bildungsabschlusses aus \textbf{bbpgen}.
 
 \begin{lstlisting}
-  merge 1:1 hhnr persnr using "${DATA}bepgen.dta", keepusing(bepsbil)
+  merge 1:1 hhnr persnr using "${DATA}bbpgen.dta", keepusing(bbpsbil)
   drop if _merge==2
   drop _merge
 \end{lstlisting}
@@ -273,45 +274,45 @@ Example: merge with the generated variable highest educational achievement \text
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{In \textbf{bepgen} contains $65$ variables, but all we need is the educational achievement.}}
+    \tiny\textcolor{black}{\texttt{In \textbf{bbpgen} sind $59$ Variablen, wir brauchen aber nur den Schulabschluss.}}
     \end{minipage}
     };
 \end{tikzpicture}
 \end{frame}
 
-\section{Operators}
-\begin{frame}[fragile]{Operators} \index{Operators}
-Stata list the following operators, which can be used with variables. Using \texttt{var1\^{}2} every value of \texttt{var1} will be squared.
+\section{Operatoren}
+\begin{frame}[fragile]{Operatoren} \index{Operatoren}
+Stata listet folgende Operatoren, die im Regelfall auch mit Variablen funktionieren. Bei \texttt{var1\^{}2} wird jede Beobachtung hoch zwei genommen.
 \begin{lstlisting}
- == // equals
- != // not equal ~=
- & // and
- | // or
- ! // not
- < // smaller
- > // greater
- <= // smaller equal
- >= // greater equal
+ == // gleich
+ != // ungleich alternativ ~=
+ & // und
+ | // oder
+ ! // nicht
+ < // kleiner
+ > // größer
+ <= // kleiner gleich
+ >= // größer gleich
  + // plus
  - // minus
- / // divide
- * // mutiply
- ^ // power
+ / // geteilt
+ * // mal
+ ^ // hoch
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Functions} \index{Functions}
-Additionaly Stata contains a range of built in functions (\texttt{help functions}).
-A selection:
+\begin{frame}[fragile]{Funktionen} \index{Funktionen}
+Darüberhinaus verfügt Stata über eine Reihe von eingebauten Funktionen (\texttt{help functions}).
+Eine Auswahl:
 \begin{lstlisting}
-  abs() // absolute value/modulus |-2| == 2
-  max() // greates value
-  min() // smalles value
-  exp() // e-function
-  ln() // logarithm
-  round() // round
+  abs() // Absolutwert/Betrag |-2| == 2
+  max() // Größter Wert
+  min() // Kleinster Wert
+  exp() // e-Funktion
+  ln() // Logarithmus
+  round() // Runden
   sin() // Sinus
-  sqrt() // square root
-  runiform() // random number
+  sqrt() // Wurzel
+  runiform() // Zufallszahlen
 \end{lstlisting}
 \end{frame}

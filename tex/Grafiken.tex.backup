@@ -20,7 +20,9 @@
 \section{Preface}
 \begin{frame}{Graphics}
 % \begin{minipage}{11cm}
- The next slides will provide a example of different types of graphics. Detailed examples and syntax for modification of graphic title, titles for the axis or combination of multiple graphics see \textcite[Chap. 6]{Kohler2012} and in-depth with lots of images \textcite{Mitchell2012}.
+ The next slides will provide a example of different types of graphics. Detailed examples and syntax for modification of graphic title, titles for the axis or combination of multiple graphics see \textcite[Chap. 6]{Kohler2012} and in-depth with lots of images \textcite{Mitchell2012}.\\
+ 
+ The dataset used for the following plots is the Allbus Compact 2010.
 % \end{minipage}
 \end{frame}
 
@@ -40,7 +42,7 @@ Don't do any pie, pizza, circle or however you name them charts. Just don't do i
 \section{Scatterplot}
 \begin{frame}[fragile]{Scatterplots} \index{Graphics!Scatterplot} \index{Graphics!scatter}
 \begin{lstlisting}
-scatter weight height
+scatter hhinc age
 \end{lstlisting}
 \begin{figure}
 {\centering\includegraphics[width=8cm]{images/scatter.eps}}
@@ -50,7 +52,7 @@ scatter weight height
 \section{Boxplots}
 \begin{frame}[fragile]{Boxplots} \index{Graphics!Boxplots} \index{Graphics!graph box}
 \begin{lstlisting}
-graph box weight
+graph box hhinc
 \end{lstlisting}
 \begin{figure}
 {\centering\includegraphics[width=8cm]{images/box.eps}}
@@ -60,7 +62,7 @@ graph box weight
 \section{Histograms}
 \begin{frame}[fragile]{Histograms} \index{Grafik!Histograms} \index{Graphics!hist} \index{Graphics!hist freq}
 \begin{lstlisting}
-hist weight, freq
+hist hhinc, freq
 \end{lstlisting}
 \begin{figure}
 {\centering\includegraphics[width=8cm]{images/hist.eps}}
@@ -79,7 +81,7 @@ hist weight, freq
 \section{Dot-Charts}
 \begin{frame}[fragile]{Dot-Charts} \index{Graphics!Dot-Charts} \index{Graphics!graph dot} \index{Graphics! graph dot over()}
 \begin{lstlisting}
-graph dot (mean) weight, over(sex)
+graph dot (mean) hhinc, over(sex)
 \end{lstlisting}
 \begin{figure}
 {\centering\includegraphics[width=8cm]{images/dot.eps}}

@@ -20,14 +20,7 @@
 	xratio mul
 	/xp exch def
 	Slrgb setrgbcolor
-	newpath
-	xp yp moveto
-	xp Slw add yp
-	lineto
-	currentlinecap
-	1 setlinecap
-	stroke
-	setlinecap
+	xp yp .5 0 360 arc fill
 } def
 /Sln {
 	yratio mul
@@ -115,16 +108,15 @@
 	/y0 exch def
 	xratio mul
 	/x0 exch def
+	newpath x0 y0 moveto x0 y1 lineto x1 y1 lineto x1 y0 lineto x0 y0 lineto closepath
 	sfill 1 eq {
 		Ssrgb setrgbcolor
-		x0 y0 moveto
-		x0 y1 lineto x1 y1 lineto x1 y0 lineto x0 y0 lineto
+		gsave
 		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	x0 y0 moveto
-	x0 y1 lineto x1 y1 lineto x1 y0 lineto x0 y0 lineto
 	stroke
 } def
 /Sellipse {
@@ -137,22 +129,19 @@
 	/y exch def
 	xratio mul
 	/x exch def
+	/savematrix matrix currentmatrix def
+	x y translate
+	xrad yrad scale
+	0 0 1 0 360 arc
+	savematrix setmatrix
 	sfill 1 eq {
 		Ssrgb setrgbcolor
-		/savematrix matrix currentmatrix def
-		x y translate
-		xrad yrad scale
-		0 0 1 0 360 arc
-		savematrix setmatrix
+		gsave
 		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-		/savematrix matrix currentmatrix def
-		x y translate
-		xrad yrad scale
-		0 0 1 0 360 arc
-		savematrix setmatrix
 	stroke
 } def
 /Stri {
@@ -174,13 +163,16 @@
 	/xleft exch def
 	xcen add
 	/xright exch def
+	newpath xcen ytop moveto xright ybot lineto xleft ybot lineto xcen ytop lineto closepath
 	sfill 1 eq {
 		Ssrgb setrgbcolor
-		xcen ytop moveto xright ybot lineto xleft ybot lineto xcen ytop lineto fill
+		gsave
+		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	xcen ytop moveto xright ybot lineto xleft ybot lineto xcen ytop lineto stroke
+	stroke
 } def
 /Soldtri {
 	/sfill exch def
@@ -201,13 +193,16 @@
 	/x3 x0 def
 	y0 r add
 	/y3 exch def
+	newpath x1 y1 moveto x2 y2 lineto x3 y3 lineto x1 y1 lineto closepath
 	sfill 1 eq {
 		Ssrgb setrgbcolor
-		x1 y1 moveto x2 y2 lineto x3 y3 lineto x1 y1 lineto fill
+		gsave
+		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	x1 y1 moveto x2 y2 lineto x3 y3 lineto x1 y1 lineto stroke
+	stroke
 } def
 /Sdia {
 	/sfill exch def
@@ -229,13 +224,16 @@
 	/x3 x def
 	y r add
 	/y3 exch def
-	sfill 1 eq  {
+	newpath x0 y0 moveto x1 y1 lineto x2 y2 lineto x3 y3 lineto x0 y0 lineto closepath
+	sfill 1 eq {
 		Ssrgb setrgbcolor
-		x0 y0 moveto x1 y1 lineto x2 y2 lineto x3 y3 lineto x0 y0 lineto fill
+		gsave
+		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	x0 y0 moveto x1 y1 lineto x2 y2 lineto x3 y3 lineto x0 y0 lineto stroke
+	stroke
 } def
 /Scc {
 	/sfill exch def
@@ -245,13 +243,16 @@
 	/y0 exch def
 	xratio mul
 	/x0 exch def
+	x0 y0 r0 0 360 arc closepath
 	sfill 1 eq {
 		Ssrgb setrgbcolor
-		x0 y0 r0 0 360 arc fill
+		gsave
+		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	x0 y0 r0 0 360 arc stroke
+	stroke
 } def
 /Spie {
 	/sfill exch def
@@ -263,14 +264,15 @@
 	/y exch def
 	xratio mul
 	/x exch def
+	newpath x y moveto x y r a0 a1 arc closepath
 	sfill 1 eq {
 		Ssrgb setrgbcolor
-		newpath x y moveto x y r a0 a1 arc closepath
+		gsave
 		fill
+		grestore
 	} if
 	Slw setlinewidth
 	Slrgb setrgbcolor
-	newpath x y moveto x y r a0 a1 arc closepath
 	stroke
 } def
 /Splu {
@@ -391,219 +393,221 @@
 /Slw 0.576 def
 0 0 31999 23272 1 Srect
 /Slrgb {0.000 0.000 0.000} def
-2996 3158 31184 22457 0 Srect
+4080 3158 31184 22457 0 Srect
 /Strgb {0.000 0.000 0.000} def
 /Ssrgb {0.000 0.000 0.000} def
-2996 8390 12 1 Scc 
-3278 8390 12 1 Scc 
-3560 8390 12 1 Scc 
-3842 8390 12 1 Scc 
-4124 8390 12 1 Scc 
-4406 8390 12 1 Scc 
-4688 8390 12 1 Scc 
-4969 8390 12 1 Scc 
-5251 8390 12 1 Scc 
-5533 8390 12 1 Scc 
-5815 8390 12 1 Scc 
-6097 8390 12 1 Scc 
-6379 8390 12 1 Scc 
-6661 8390 12 1 Scc 
-6943 8390 12 1 Scc 
-7224 8390 12 1 Scc 
-7506 8390 12 1 Scc 
-7788 8390 12 1 Scc 
-8070 8390 12 1 Scc 
-8352 8390 12 1 Scc 
-8634 8390 12 1 Scc 
-8916 8390 12 1 Scc 
-9198 8390 12 1 Scc 
-9480 8390 12 1 Scc 
-9761 8390 12 1 Scc 
+4080 8390 12 1 Scc 
+4351 8390 12 1 Scc 
+4622 8390 12 1 Scc 
+4893 8390 12 1 Scc 
+5165 8390 12 1 Scc 
+5436 8390 12 1 Scc 
+5707 8390 12 1 Scc 
+5978 8390 12 1 Scc 
+6249 8390 12 1 Scc 
+6520 8390 12 1 Scc 
+6791 8390 12 1 Scc 
+7062 8390 12 1 Scc 
+7333 8390 12 1 Scc 
+7604 8390 12 1 Scc 
+7875 8390 12 1 Scc 
+8146 8390 12 1 Scc 
+8417 8390 12 1 Scc 
+8688 8390 12 1 Scc 
+8959 8390 12 1 Scc 
+9230 8390 12 1 Scc 
+9501 8390 12 1 Scc 
+9772 8390 12 1 Scc 
 10043 8390 12 1 Scc 
-10325 8390 12 1 Scc 
-10607 8390 12 1 Scc 
-10889 8390 12 1 Scc 
-11171 8390 12 1 Scc 
-11453 8390 12 1 Scc 
-11735 8390 12 1 Scc 
-12016 8390 12 1 Scc 
-12298 8390 12 1 Scc 
-12580 8390 12 1 Scc 
-12862 8390 12 1 Scc 
-13144 8390 12 1 Scc 
-13426 8390 12 1 Scc 
-13708 8390 12 1 Scc 
-13990 8390 12 1 Scc 
-14272 8390 12 1 Scc 
-14553 8390 12 1 Scc 
-14835 8390 12 1 Scc 
-15117 8390 12 1 Scc 
-15399 8390 12 1 Scc 
-15681 8390 12 1 Scc 
-15963 8390 12 1 Scc 
-16245 8390 12 1 Scc 
-16527 8390 12 1 Scc 
-16808 8390 12 1 Scc 
+10314 8390 12 1 Scc 
+10585 8390 12 1 Scc 
+10856 8390 12 1 Scc 
+11127 8390 12 1 Scc 
+11398 8390 12 1 Scc 
+11670 8390 12 1 Scc 
+11941 8390 12 1 Scc 
+12212 8390 12 1 Scc 
+12483 8390 12 1 Scc 
+12754 8390 12 1 Scc 
+13025 8390 12 1 Scc 
+13296 8390 12 1 Scc 
+13567 8390 12 1 Scc 
+13838 8390 12 1 Scc 
+14109 8390 12 1 Scc 
+14380 8390 12 1 Scc 
+14651 8390 12 1 Scc 
+14922 8390 12 1 Scc 
+15193 8390 12 1 Scc 
+15464 8390 12 1 Scc 
+15735 8390 12 1 Scc 
+16006 8390 12 1 Scc 
+16277 8390 12 1 Scc 
+16548 8390 12 1 Scc 
+16819 8390 12 1 Scc 
 17090 8390 12 1 Scc 
-17372 8390 12 1 Scc 
-17654 8390 12 1 Scc 
-17936 8390 12 1 Scc 
-18218 8390 12 1 Scc 
-18500 8390 12 1 Scc 
-18782 8390 12 1 Scc 
-19064 8390 12 1 Scc 
-19345 8390 12 1 Scc 
-19627 8390 12 1 Scc 
-19909 8390 12 1 Scc 
-20191 8390 12 1 Scc 
-20473 8390 12 1 Scc 
-20755 8390 12 1 Scc 
-21037 8390 12 1 Scc 
-21319 8390 12 1 Scc 
-21600 8390 12 1 Scc 
-21882 8390 12 1 Scc 
-22164 8390 12 1 Scc 
-22446 8390 12 1 Scc 
-22728 8390 12 1 Scc 
-23010 8390 12 1 Scc 
-23292 8390 12 1 Scc 
-23574 8390 12 1 Scc 
-23856 8390 12 1 Scc 
+17361 8390 12 1 Scc 
+17632 8390 12 1 Scc 
+17903 8390 12 1 Scc 
+18174 8390 12 1 Scc 
+18446 8390 12 1 Scc 
+18717 8390 12 1 Scc 
+18988 8390 12 1 Scc 
+19259 8390 12 1 Scc 
+19530 8390 12 1 Scc 
+19801 8390 12 1 Scc 
+20072 8390 12 1 Scc 
+20343 8390 12 1 Scc 
+20614 8390 12 1 Scc 
+20885 8390 12 1 Scc 
+21156 8390 12 1 Scc 
+21427 8390 12 1 Scc 
+21698 8390 12 1 Scc 
+21969 8390 12 1 Scc 
+22240 8390 12 1 Scc 
+22511 8390 12 1 Scc 
+22782 8390 12 1 Scc 
+23053 8390 12 1 Scc 
+23324 8390 12 1 Scc 
+23595 8390 12 1 Scc 
+23866 8390 12 1 Scc 
 24137 8390 12 1 Scc 
-24419 8390 12 1 Scc 
-24701 8390 12 1 Scc 
-24983 8390 12 1 Scc 
-25265 8390 12 1 Scc 
-25547 8390 12 1 Scc 
-25829 8390 12 1 Scc 
-26111 8390 12 1 Scc 
-26392 8390 12 1 Scc 
-26674 8390 12 1 Scc 
-26956 8390 12 1 Scc 
-27238 8390 12 1 Scc 
-27520 8390 12 1 Scc 
-27802 8390 12 1 Scc 
-28084 8390 12 1 Scc 
-28366 8390 12 1 Scc 
-28648 8390 12 1 Scc 
-28929 8390 12 1 Scc 
-29211 8390 12 1 Scc 
-29493 8390 12 1 Scc 
-29775 8390 12 1 Scc 
-30057 8390 12 1 Scc 
-30339 8390 12 1 Scc 
-30621 8390 12 1 Scc 
-30903 8390 12 1 Scc 
-2996 17225 12 1 Scc 
-3278 17225 12 1 Scc 
-3560 17225 12 1 Scc 
-3842 17225 12 1 Scc 
-4124 17225 12 1 Scc 
-4406 17225 12 1 Scc 
-4688 17225 12 1 Scc 
-4969 17225 12 1 Scc 
-5251 17225 12 1 Scc 
-5533 17225 12 1 Scc 
-5815 17225 12 1 Scc 
-6097 17225 12 1 Scc 
-6379 17225 12 1 Scc 
-6661 17225 12 1 Scc 
-6943 17225 12 1 Scc 
-7224 17225 12 1 Scc 
-7506 17225 12 1 Scc 
-7788 17225 12 1 Scc 
-8070 17225 12 1 Scc 
-8352 17225 12 1 Scc 
-8634 17225 12 1 Scc 
-8916 17225 12 1 Scc 
-9198 17225 12 1 Scc 
-9480 17225 12 1 Scc 
-9761 17225 12 1 Scc 
+24408 8390 12 1 Scc 
+24679 8390 12 1 Scc 
+24951 8390 12 1 Scc 
+25222 8390 12 1 Scc 
+25493 8390 12 1 Scc 
+25764 8390 12 1 Scc 
+26035 8390 12 1 Scc 
+26306 8390 12 1 Scc 
+26577 8390 12 1 Scc 
+26848 8390 12 1 Scc 
+27119 8390 12 1 Scc 
+27390 8390 12 1 Scc 
+27661 8390 12 1 Scc 
+27932 8390 12 1 Scc 
+28203 8390 12 1 Scc 
+28474 8390 12 1 Scc 
+28745 8390 12 1 Scc 
+29016 8390 12 1 Scc 
+29287 8390 12 1 Scc 
+29558 8390 12 1 Scc 
+29829 8390 12 1 Scc 
+30100 8390 12 1 Scc 
+30371 8390 12 1 Scc 
+30642 8390 12 1 Scc 
+30913 8390 12 1 Scc 
+31184 8390 12 1 Scc 
+4080 17225 12 1 Scc 
+4351 17225 12 1 Scc 
+4622 17225 12 1 Scc 
+4893 17225 12 1 Scc 
+5165 17225 12 1 Scc 
+5436 17225 12 1 Scc 
+5707 17225 12 1 Scc 
+5978 17225 12 1 Scc 
+6249 17225 12 1 Scc 
+6520 17225 12 1 Scc 
+6791 17225 12 1 Scc 
+7062 17225 12 1 Scc 
+7333 17225 12 1 Scc 
+7604 17225 12 1 Scc 
+7875 17225 12 1 Scc 
+8146 17225 12 1 Scc 
+8417 17225 12 1 Scc 
+8688 17225 12 1 Scc 
+8959 17225 12 1 Scc 
+9230 17225 12 1 Scc 
+9501 17225 12 1 Scc 
+9772 17225 12 1 Scc 
 10043 17225 12 1 Scc 
-10325 17225 12 1 Scc 
-10607 17225 12 1 Scc 
-10889 17225 12 1 Scc 
-11171 17225 12 1 Scc 
-11453 17225 12 1 Scc 
-11735 17225 12 1 Scc 
-12016 17225 12 1 Scc 
-12298 17225 12 1 Scc 
-12580 17225 12 1 Scc 
-12862 17225 12 1 Scc 
-13144 17225 12 1 Scc 
-13426 17225 12 1 Scc 
-13708 17225 12 1 Scc 
-13990 17225 12 1 Scc 
-14272 17225 12 1 Scc 
-14553 17225 12 1 Scc 
-14835 17225 12 1 Scc 
-15117 17225 12 1 Scc 
-15399 17225 12 1 Scc 
-15681 17225 12 1 Scc 
-15963 17225 12 1 Scc 
-16245 17225 12 1 Scc 
-16527 17225 12 1 Scc 
-16808 17225 12 1 Scc 
+10314 17225 12 1 Scc 
+10585 17225 12 1 Scc 
+10856 17225 12 1 Scc 
+11127 17225 12 1 Scc 
+11398 17225 12 1 Scc 
+11670 17225 12 1 Scc 
+11941 17225 12 1 Scc 
+12212 17225 12 1 Scc 
+12483 17225 12 1 Scc 
+12754 17225 12 1 Scc 
+13025 17225 12 1 Scc 
+13296 17225 12 1 Scc 
+13567 17225 12 1 Scc 
+13838 17225 12 1 Scc 
+14109 17225 12 1 Scc 
+14380 17225 12 1 Scc 
+14651 17225 12 1 Scc 
+14922 17225 12 1 Scc 
+15193 17225 12 1 Scc 
+15464 17225 12 1 Scc 
+15735 17225 12 1 Scc 
+16006 17225 12 1 Scc 
+16277 17225 12 1 Scc 
+16548 17225 12 1 Scc 
+16819 17225 12 1 Scc 
 17090 17225 12 1 Scc 
-17372 17225 12 1 Scc 
-17654 17225 12 1 Scc 
-17936 17225 12 1 Scc 
-18218 17225 12 1 Scc 
-18500 17225 12 1 Scc 
-18782 17225 12 1 Scc 
-19064 17225 12 1 Scc 
-19345 17225 12 1 Scc 
-19627 17225 12 1 Scc 
-19909 17225 12 1 Scc 
-20191 17225 12 1 Scc 
-20473 17225 12 1 Scc 
-20755 17225 12 1 Scc 
-21037 17225 12 1 Scc 
-21319 17225 12 1 Scc 
-21600 17225 12 1 Scc 
-21882 17225 12 1 Scc 
-22164 17225 12 1 Scc 
-22446 17225 12 1 Scc 
-22728 17225 12 1 Scc 
-23010 17225 12 1 Scc 
-23292 17225 12 1 Scc 
-23574 17225 12 1 Scc 
-23856 17225 12 1 Scc 
+17361 17225 12 1 Scc 
+17632 17225 12 1 Scc 
+17903 17225 12 1 Scc 
+18174 17225 12 1 Scc 
+18446 17225 12 1 Scc 
+18717 17225 12 1 Scc 
+18988 17225 12 1 Scc 
+19259 17225 12 1 Scc 
+19530 17225 12 1 Scc 
+19801 17225 12 1 Scc 
+20072 17225 12 1 Scc 
+20343 17225 12 1 Scc 
+20614 17225 12 1 Scc 
+20885 17225 12 1 Scc 
+21156 17225 12 1 Scc 
+21427 17225 12 1 Scc 
+21698 17225 12 1 Scc 
+21969 17225 12 1 Scc 
+22240 17225 12 1 Scc 
+22511 17225 12 1 Scc 
+22782 17225 12 1 Scc 
+23053 17225 12 1 Scc 
+23324 17225 12 1 Scc 
+23595 17225 12 1 Scc 
+23866 17225 12 1 Scc 
 24137 17225 12 1 Scc 
-24419 17225 12 1 Scc 
-24701 17225 12 1 Scc 
-24983 17225 12 1 Scc 
-25265 17225 12 1 Scc 
-25547 17225 12 1 Scc 
-25829 17225 12 1 Scc 
-26111 17225 12 1 Scc 
-26392 17225 12 1 Scc 
-26674 17225 12 1 Scc 
-26956 17225 12 1 Scc 
-27238 17225 12 1 Scc 
-27520 17225 12 1 Scc 
-27802 17225 12 1 Scc 
-28084 17225 12 1 Scc 
-28366 17225 12 1 Scc 
-28648 17225 12 1 Scc 
-28929 17225 12 1 Scc 
-29211 17225 12 1 Scc 
-29493 17225 12 1 Scc 
-29775 17225 12 1 Scc 
-30057 17225 12 1 Scc 
-30339 17225 12 1 Scc 
-30621 17225 12 1 Scc 
-30903 17225 12 1 Scc 
+24408 17225 12 1 Scc 
+24679 17225 12 1 Scc 
+24951 17225 12 1 Scc 
+25222 17225 12 1 Scc 
+25493 17225 12 1 Scc 
+25764 17225 12 1 Scc 
+26035 17225 12 1 Scc 
+26306 17225 12 1 Scc 
+26577 17225 12 1 Scc 
+26848 17225 12 1 Scc 
+27119 17225 12 1 Scc 
+27390 17225 12 1 Scc 
+27661 17225 12 1 Scc 
+27932 17225 12 1 Scc 
+28203 17225 12 1 Scc 
+28474 17225 12 1 Scc 
+28745 17225 12 1 Scc 
+29016 17225 12 1 Scc 
+29287 17225 12 1 Scc 
+29558 17225 12 1 Scc 
+29829 17225 12 1 Scc 
+30100 17225 12 1 Scc 
+30371 17225 12 1 Scc 
+30642 17225 12 1 Scc 
+30913 17225 12 1 Scc 
+31184 17225 12 1 Scc 
 /Slw 0.864 def
 /Slrgb {0.376 0.376 0.376} def
 /Ssrgb {0.376 0.376 0.376} def
-16034 8390 178 1 Scc 
-26082 17225 178 1 Scc 
+26218 8390 178 1 Scc 
+29926 17225 178 1 Scc 
 /Slw 0.576 def
 /Slrgb {0.000 0.000 0.000} def
-2996 3158 31184 3158 Sln
-2996 3158 2996 2835 Sln
-2996 2107 0
+4080 3158 31184 3158 Sln
+4080 3158 4080 2835 Sln
+4080 2107 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
 (0) stringwidth pop add
 2 div xratio div
@@ -614,86 +618,86 @@ dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 (0) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
-9840 3158 9840 2835 Sln
-9840 2107 0
+10653 3158 10653 2835 Sln
+10653 2107 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(500) stringwidth pop add
+(20) stringwidth pop add
 2 div xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(500) Stxtl
-(500) stringwidth pop xratio div
+(20) Stxtl
+(20) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
-16683 3158 16683 2835 Sln
-16683 2107 0
+17225 3158 17225 2835 Sln
+17225 2107 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(1,000) stringwidth pop add
+(40) stringwidth pop add
 2 div xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(1,000) Stxtl
-(1,000) stringwidth pop xratio div
+(40) Stxtl
+(40) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
-23527 3158 23527 2835 Sln
-23527 2107 0
+23798 3158 23798 2835 Sln
+23798 2107 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(1,500) stringwidth pop add
+(60) stringwidth pop add
 2 div xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(1,500) Stxtl
-(1,500) stringwidth pop xratio div
+(60) Stxtl
+(60) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
 30370 3158 30370 2835 Sln
 30370 2107 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(2,000) stringwidth pop add
+(80) stringwidth pop add
 2 div xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(2,000) Stxtl
-(2,000) stringwidth pop xratio div
+(80) Stxtl
+(80) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
-17090 1218 0
+17632 1218 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(mean of hhinc) stringwidth pop add
+(mean of weight) stringwidth pop add
 2 div xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(mean of hhinc) Stxtl
-(mean of hhinc) stringwidth pop xratio div
+(mean of weight) Stxtl
+(mean of weight) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
-2996 3158 2996 22457 Sln
-2673 8107 0
+4080 3158 4080 22457 Sln
+3757 8107 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(frau) stringwidth pop add
+(female) stringwidth pop add
 xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(frau) Stxtl
-(frau) stringwidth pop xratio div
+(female) Stxtl
+(female) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
-2673 16942 0
+3757 16942 0
 /Helvetica-0 findfont 808 yratio mul scalefont setfont
-(mann) stringwidth pop add
+(male) stringwidth pop add
 xratio div
 dup 4 3 roll exch 0.000 cos mul sub 3 1 roll 0.000 sin mul sub 2 copy
 /fntsize {/Helvetica-0 findfont exch scalefont setfont } def
 0.000 808
-(mann) Stxtl
-(mann) stringwidth pop xratio div
+(male) Stxtl
+(male) stringwidth pop xratio div
 dup 4 3 roll exch 0.000 cos mul add 3 1 roll 0.000 sin mul add 2 copy
 pop pop pop pop
 S showpage

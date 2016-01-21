@@ -249,26 +249,26 @@ And how does one find commands?
     \begin{tikzpicture}[transform shape, rotate=5, overlay]
 \node at (8.5,-.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{Not every do-file is required to be rerun all the time. For instance importing and preparation of the data should be a one time task. It's not required to do this for every single crosstable or boxplot. Time is money!}}
+    \tiny\textcolor{black}{\texttt{Not every do-file is needed all the time. For instance importing and preparation of the data should be a one time task.. Das muss nicht für jede neue Kreuztabelle erfolgen. Zeit ist Geld!}}
     \end{minipage}
     };
 \end{tikzpicture}
 \end{frame}
 
 
-\begin{frame}[fragile]{do-file IV}
+\begin{frame}[fragile]{do-File IV}
 
- since do-files may be executed by other do-files nesting some of them in a master file helps with housekeeping \index{do-files} \index{do}
+ do-Files können ihrerseits auch aus do-Files aufgerufen werden \index{do-Files} \index{do}
 \begin{lstlisting}
-  ** call other do-files
-  do "01-Data_Import.do"
-  do "02-Data_Preparation.do"
-  do "03-Descriptive_Analysis.do"
+  ** do-Files aufrufen
+  do DatenEinlesen.do
+  do Aufbereitung.do
+  do DeskriptiveAuswertungen.do
 \end{lstlisting}
 \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{This tightens your syntax and the correct order of do-files is asured.}}
+    \tiny\textcolor{black}{\texttt{Dadurch wird die Syntax schlanker und die do-Files werden garantiert in der richtigen Reihenfolge aufgerufen.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -277,10 +277,10 @@ And how does one find commands?
 
 
 
-\section{Working}
-\subsection{Description of data in memory}
-\begin{frame}[fragile]{Description of data in memory}
-Description of data in memory \index{Describe} \index{Describe!describe} \index{Describe!codebook} \index{list} \index{browse} \index{Help!help}
+\section{Arbeiten}
+\subsection{Übersicht}
+\begin{frame}[fragile]{Übersicht}
+Übersicht der eingelesene Daten \index{Beschreiben} \index{Beschreiben!describe} \index{Beschreiben!codebook} \index{list} \index{browse} \index{Hilfe!help}
 
   \begin{lstlisting}
   describe
@@ -289,7 +289,7 @@ Description of data in memory \index{Describe} \index{Describe!describe} \index{
   browse
   \end{lstlisting}
   
-Studying \texttt{help describe} shows you
+Nach \texttt{help describe} kennt man
   \begin{lstlisting}
   describe, simple
   \end{lstlisting}
@@ -297,18 +297,18 @@ Studying \texttt{help describe} shows you
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (8.5,-.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.25\textwidth}
-    \tiny\textcolor{black}{\texttt{Help files contain information whether or not a command requires a single variable or a variablelist.}}
+    \tiny\textcolor{black}{\texttt{In der Hilfe steht, ob einem Befehl noch einzelne Variablen oder Variablenlisten übergeben werden können.}}
     \end{minipage}
     };
 \end{tikzpicture}
 
 \end{frame}
 
-\subsection{Descriptive}
-\begin{frame}[fragile]{Descriptive Analysis}
-Descriptive analysis of variables \footnote{\texttt{var1} and \texttt{var2} are placeholders.}
+\subsection{Deskriptiv}
+\begin{frame}[fragile]{Deskriptive Auswertungen}
+Deskriptive Auswertungen von Variablen\footnote{\texttt{var1} und \texttt{var2} sind hier Platzhalter.}
 
-\index{Table!tabulate} \index{Describe!summarize} \index{Help!help}
+\index{Tabelle!tabulate} \index{Beschreiben!summarize} \index{Hilfe!help}
   \begin{lstlisting}
   tabulate var1
   tabulate var2
@@ -317,7 +317,7 @@ Descriptive analysis of variables \footnote{\texttt{var1} and \texttt{var2} are 
   summarize var1-var4
   \end{lstlisting}
 
-Studying \texttt{help summarize} shows you
+Nach \texttt{help summarize} kennt man
   \begin{lstlisting}
   summarize var1, detail
   \end{lstlisting}

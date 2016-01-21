@@ -234,7 +234,7 @@ Now we decode these values as missing values
 \subsection{Variable Handling}
 \begin{frame}[fragile]{Mistakes} \index{Mistakes} \index{drop}
 % \begin{minipage}{11cm}
-After hours of work you figure that you have made a mistake and want to modify the just created variable \texttt{bmi\_r}. What now?
+After hours of work you figure that you have made a mistake and want to modify the just created variable \texttt{bmi_r}. What now?
 \begin{itemize}
  \item Luckily you have not touched the original data. Just run your do-file up to the point where the mistake is located.
  \item You already spotted the error and want to rerun the variable creation. Simply remove the variable
@@ -246,38 +246,38 @@ After hours of work you figure that you have made a mistake and want to modify t
 \end{frame}
 
 \section{Save and Import}
-\subsection{Save}
-\begin{frame}[fragile]{Save Data} \index{Save!save} \index{Save!replace} \index{Save}
+\subsection{Speichern}
+\begin{frame}[fragile]{Daten sichern} \index{Speichern!save} \index{Speichern!replace} \index{Speichern}
 % Ein langer erfolgreicher Arbeitstag geht zuende. Sie wollen Ihre bisherigen Ergebnisse sichern.
-Save your do-file into a directory on your computer (e.g. \textit{do-files}) and your data into a different folder(e.g. \textit{data}).
+Speichern Sie ihr Do-File in einen Ordner \textit{do-files} und ihre Daten in einen Ordner \textit{data}.
 \begin{lstlisting}
-  save "D:/Data/data/testdata_recoded.dta"
+  save "D:/Daten/data/testdaten_rekodiert.dta"
 \end{lstlisting}
-If a file with the same name exists, Stata does not want to erase anything by mistake and asks you for the \texttt{replace} option
+Zum erneuten Speichern muss ein anderer Dateiname angegeben werden oder die Option \texttt{replace} genutzt werden.
 \begin{lstlisting}
-  save "D:/Data/data/testdata_recoded.dta", replace
+  save "D:/Daten/data/testdaten_rekodiert.dta", replace
 \end{lstlisting}
 
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.8) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{Replaced data is forever gone. Never \underline{ever} replace your original data!}}
+    \tiny\textcolor{black}{\texttt{Einmal ersetzte Datensätze sind unwiderruflich überschrieben. Überschreiben Sie \underline{niemals} die Originaldaten!}}
     \end{minipage}
     };
 \end{tikzpicture}
 \end{frame}
 
-\subsection{Import}
-\begin{frame}[fragile]{Import Data} \index{Import!use} \index{Import!clear} \index{Import}
-With \texttt{use ..., clear} the currently imported data set will be replaced
+\subsection{Laden}
+\begin{frame}[fragile]{Daten wieder einlesen} \index{Laden!use} \index{Laden!clear} \index{Laden}
+Mit der Option \texttt{clear} wird der aktuelle Datensatz ersetzt.
 \begin{lstlisting}
-  use "D:/Data/data/testdata.dta", clear
+  use "D:/Daten/data/testdaten.dta", clear
 \end{lstlisting}
 
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.8) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{Unsaved modifications to the current data set are ignored and are not saved. Using the clear option forces Stata to do something it would otherwise warn you about.}}
+    \tiny\textcolor{black}{\texttt{Mögliche Veränderungen an vorhandenen eingelesenen Datensätzen werden ignoriert. Sie zwingen Stata hier ein Verhalten auf, vor dem Stata Sie sonst normal warnt.}}
     \end{minipage}
     };
 \end{tikzpicture}
