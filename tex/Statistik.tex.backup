@@ -124,13 +124,13 @@ You can add numeric values to your variable labels \index{Label!numlabel}
 \begin{frame}[fragile]{T-Test} \index{T-Test!ttest} \index{T-Test}
 And finally let us have a look at some test-statistics
 \begin{lstlisting}
-  ** compare 
-  tab sex, sum(bmi)
-  ttest bmi, by(sex)
+  ** Vergleich Männer Frauen in West Ost
+  tab sex, sum(east)
+  ttest sex, by(east)
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{And much more to come \dots} \index{Regression!regress} \index{Regression!logit} \index{Regression!mlog}
+\begin{frame}[fragile]{Und noch viel mehr \dots} \index{Regression!regress} \index{Regression!logit} \index{Regression!mlog}
 Regression
 \begin{lstlisting}
   regress
@@ -141,5 +141,5 @@ Regression
 
 \begin{frame}
 \thispagestyle{empty}
- To be continued.
+ Fortsetzung folgt.
 \end{frame}

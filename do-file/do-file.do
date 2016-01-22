@@ -9,7 +9,7 @@ Content: Importing SOEP-data
 
 // save "~/nhanes2b.dta"
 
-caption log close
+capture log close
 
 ** We write code for Stata version 8 and later
 version 8 // This runs with Stata 8 and might not work with Stata 7
@@ -116,3 +116,37 @@ graph export "/home/jmg/Source/StataFolien/images/hist.eps", replace
 
 graph dot (mean) weight, over(sex)
 graph export "/home/jmg/Source/StataFolien/images/dot.eps", replace
+
+mean height
+summarize height
+summarize height, detail
+
+tabstat height, statistic(min max mean median p50)
+tabstat height, statistic(min max range mean count q) by(county)
+
+tabstat height, statistic(sd sem var q iqr)
+tabstat height, statistics(skewness kurtosis)
+
+tab county, summarize(height)
+
+
+tab school county
+
+** tabs of each variable
+tab1 sex county school
+** cross tabs of ab bc ac
+tab2 sex county school
+
+** chi^2
+tab sex county, chi
+** cramers v
+tab sex county, V
+
+** manual
+tab sex county, exp col row
+** phi and for 2x2 tabs V
+di (1013*1002 - 925*1131) / (2144*1927*1938*2133)^(1/2) 
+** chi^2
+di 4071 *(-.00753735)^2
+** usual way to compute V
+di (.23128021 / 4071 * (2 - 1) )^(1/2) // V

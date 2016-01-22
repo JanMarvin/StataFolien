@@ -17,7 +17,7 @@
 Time and time again generation of variables is required
 \begin{lstlisting}
   ** clone variable
-  clonevar SEX = sex
+  clonevar female = sex
 
   ** generate variable
   gen gender = .
@@ -25,7 +25,7 @@ Time and time again generation of variables is required
   recode gender . = 2 if sex == 2
 
   ** spot the difference
-  tab SEX
+  tab female
   tab gender
 \end{lstlisting}
 \end{frame}
