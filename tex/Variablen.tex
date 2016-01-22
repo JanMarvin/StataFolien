@@ -66,7 +66,7 @@ Missing values in Stata are identified by the dot. \index{Missing Values!.} \ind
 
 \begin{frame}[fragile]{A moment please \texttt{\dots~if \dots~== 1} ?}
 % Durch \texttt{if} werden in Stata Bedingungen festgelegt. Im Beispiel wird die Variable \texttt{geschlecht} auf den Wert $1$ gesetzt, wenn die Variable \texttt{sex} den Wert $1$ hat. Solche Bedingungen sind für eine ganze Reihe von Befehlen möglich und können im Regelfall auch verknüpft werden.
-Bedingungen \index{Tabelle!tab} \index{if} \index{if!und \&} \index{if!oder \|}
+Bedingungen \index{Table!tab} \index{if} \index{if!and} \index{if!or}
 \begin{lstlisting}
 ** sex in county 1 and school 1 or 2
   tab sex if county == 1 & ///
@@ -83,7 +83,7 @@ Bedingungen \index{Tabelle!tab} \index{if} \index{if!und \&} \index{if!oder \|}
 
 \begin{frame}[fragile]{and \texttt{tab} ?}
 % Der Befehl \texttt{tab} ist eine Kurzform von tabulate. Kurzschreibweisen findet man durch das Studium der Helpfiles.\vspace{0.5cm}
-\texttt{tab} is short for\\ \vspace{0.5cm} \index{Tabelle!tab} \index{Hilfe!help}
+\texttt{tab} is short for\\ \vspace{0.5cm} \index{Table!tab} \index{Help!help}
 \begin{scriptsize}
 \texttt{
   \textcolor{Statakeywords}{help tabulate twoway} \\
@@ -101,7 +101,7 @@ Bedingungen \index{Tabelle!tab} \index{if} \index{if!und \&} \index{if!oder \|}
 \end{frame}
 
 \subsection{Label}
-\begin{frame}[fragile]{Label} \index{Label!label} \index{Label!label variable} \index{Label!label define} \index{Label!label values} \index{Tabelle!nolabel}
+\begin{frame}[fragile]{Label} \index{Label!label} \index{Label!label variable} \index{Label!label define} \index{Label!label values} \index{Table!nolabel}
 To label a variable, lable have to be defined and afterwards applied
 \begin{lstlisting}
   ** label a variable

@@ -29,8 +29,8 @@
 
 \begin{frame}[fragile]{Syntaxfiles}
   \begin{itemize}
-  \item Stata syntax is handled in do-files. \index{do-files}
-  \item Starting the editor \index{do-files!doedit}
+  \item Stata syntax is handled in do-files. \index{do-file}
+  \item Starting the editor \index{do-file!doedit}
   \begin{lstlisting}
   doedit
   \end{lstlisting}
@@ -75,7 +75,7 @@
     \begin{lstlisting}
     cd "D:/Data/"
     \end{lstlisting}
-    \item Importing data \index{use} \index{import}
+    \item Importing data \index{use} \index{Import}
     \begin{lstlisting}
     use <dataname.dta>
     \end{lstlisting}
@@ -170,7 +170,7 @@ Document your code! \index{comment}
 
 \begin{frame}[fragile]{do-file II}
  \begin{itemize}
-  \item Import some testdata \index{import!use} \index{import}
+  \item Import some testdata \index{Import!use} \index{Import}
 
   \begin{lstlisting}
   use "D:/Data/testdaten.dta"
@@ -220,7 +220,7 @@ Document your code! \index{comment}
 \end{frame}
 
 \subsection{findit}
-\begin{frame}[fragile]{findit} \index{Suchen!findit}
+\begin{frame}[fragile]{findit} \index{Search!findit}\index{findit}
 And how does one find commands?
 \begin{lstlisting}
   findit describe
@@ -238,7 +238,7 @@ And how does one find commands?
 
 
 \begin{frame}[fragile]{do-File III}
- Different tasks, different do-files. \index{do-files}
+ Different tasks, different do-files. \index{do-file}
  \begin{itemize}
   \item Import data
   \item Preparation
@@ -258,7 +258,7 @@ And how does one find commands?
 
 \begin{frame}[fragile]{do-file IV}
 
- since do-files may be executed by other do-files nesting some of them in a master file helps with housekeeping \index{do-files} \index{do}
+ since do-files may be executed by other do-files nesting some of them in a master file helps with housekeeping \index{do-file} \index{do}
 \begin{lstlisting}
   ** call other do-files
   do "01-Data_Import.do"
