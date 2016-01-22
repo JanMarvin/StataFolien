@@ -148,5 +148,10 @@ tab sex county, exp col row
 di (1013*1002 - 925*1131) / (2144*1927*1938*2133)^(1/2) 
 ** chi^2
 di 4071 *(-.00753735)^2
-** usual way to compute V
+** usual way to compute V 
 di (.23128021 / 4071 * (2 - 1) )^(1/2) // V
+
+
+** compare 
+tab sex, sum(bmi)
+ttest bmi, by(sex)
