@@ -133,7 +133,7 @@ Document your code! \index{comment}
 
 \begin{frame}[fragile]{do-file Ib}
 \begin{itemize} \index{comment!commenting}
-   \item \texttt{/*} (begin) und \texttt{*/} (end) define a comment. Alternative this can be done at the begin of a line with \texttt{*} or inline with \texttt{//}
+   \item \texttt{/*} (begin) und \texttt{*/} (end) define a comment. Alternative this can be done at the beginning of a line with \texttt{*} or inline with \texttt{//}
   
   \begin{lstlisting}
   ** We write code for Stata version 8 and later
@@ -229,7 +229,7 @@ And how does one find commands?
    \begin{tikzpicture}[transform shape, rotate=5, overlay]
 \node at (8.5,-.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{findit can be helpfull, but it's not guaranteed.}}
+    \tiny\textcolor{black}{\texttt{findit can be helpfull, but it's not guaranteed to find exactly what you're looking for.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -268,7 +268,7 @@ And how does one find commands?
 \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{This tightens your syntax and the correct order of do-files is asured.}}
+    \tiny\textcolor{black}{\texttt{This tightens your syntax and the correct order of do-files is assured.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -289,15 +289,15 @@ Description of data in memory \index{Describe} \index{Describe!describe} \index{
   browse
   \end{lstlisting}
   
-Studying \texttt{help describe} shows you
+Studying describes help page (\texttt{help describe}) presents additional options like
   \begin{lstlisting}
   describe, simple
   \end{lstlisting}
   
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
-\node at (8.5,-.5) [mybox] (box) {%
+\node at (8.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.25\textwidth}
-    \tiny\textcolor{black}{\texttt{Help files contain information whether or not a command requires a single variable or a variablelist.}}
+    \tiny\textcolor{black}{\texttt{Help files contain information whether or not a command requires a single variable or a list of variables.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -317,7 +317,7 @@ Descriptive analysis of variables \footnote{\texttt{var1} and \texttt{var2} are 
   summarize var1-var4
   \end{lstlisting}
 
-Studying \texttt{help summarize} shows you
+Studying summarzies help page (\texttt{help summarize}) presents additional options like
   \begin{lstlisting}
   summarize var1, detail
   \end{lstlisting}

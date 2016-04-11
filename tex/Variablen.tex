@@ -102,11 +102,11 @@ if-conditions \index{Table!tab} \index{if} \index{if!and} \index{if!or}
 
 \subsection{Label}
 \begin{frame}[fragile]{Label} \index{Label!label} \index{Label!label variable} \index{Label!label define} \index{Label!label values} \index{Table!nolabel}
-To label a variable, lable have to be defined and afterwards applied
+To label a variable, a label has to be defined and afterwards applied
 \begin{lstlisting}
   ** label a variable
   label variable sex "Sex"
-  ** define label for values
+  ** define label for values - labsex is the label name
   label define labsex 1 "male" 2 "female"
   ** assign label to variable
   label values sex labsex 
@@ -155,7 +155,7 @@ A new variable is created from recoded values. The original variable is not modi
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{Variable names begin with a letter.}}
+    \tiny\textcolor{black}{\texttt{Variable names begin with a character (a-z or A-Z).}}
     \end{minipage}
     };
 \end{tikzpicture}

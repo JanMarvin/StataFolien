@@ -34,7 +34,7 @@ Do it in a single line
 \end{frame}
 
 \begin{frame}[fragile]{by II}
-Es können auch mehrere Variablen genommen werden \index{by}
+It is possible to use more than one variable \index{by}
 \begin{lstlisting}
   by sex county, sort: summarize weight
 \end{lstlisting}
@@ -160,7 +160,7 @@ The syntax readability benefits a lot from this
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-2.1) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{Your saving time. Long paths are written once, which minimizes typos. A correct macros is correct for the full document. Still macros don't help you with thinking.}}
+    \tiny\textcolor{black}{\texttt{You will save a lot of time. Long paths are written only once, which minimizes typos. A correct macro will be correct for the entire document. Still macros won't help you thinking.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -189,7 +189,7 @@ Starting from a file different of these data files share, we can combine the sma
 
 \begin{frame}[fragile]{merge II} \index{Merge!merge}
 \begin{minipage}{11cm}
-As example: We merge \textbf{ppfad} with \textbf{bep} and \textbf{bepgen}. \textbf{ppfad} is the data file ever person file shares. To make sure that we combine only persons data correct, we seek for matches of household-id (hhnr) and person-id (persnr).\\
+As example: We merge \textbf{ppfad} with \textbf{bep} and \textbf{bepgen}. ppfad is the key file for the person or p-context. \textbf{ppfad} is the data file every p-file shares. To make sure that we combine our data correctly for the p-context, we seek for matches in household-id (hhnr) and person-id (persnr).\\
 
 \begin{tikzpicture}[thick]
 \node at ( 3,2) [rectangle,draw=black,text width=4cm,align=center] (ppfad) {ppfad \\
@@ -241,7 +241,7 @@ This means
 
 \begin{frame}[fragile]{merge IV}\index{Merge!\_merge}\index{Merge!merge}
 \begin{minipage}{11cm}
-A new variable \texttt{\_merge} is created containing the \texttt{\_merge==} values. For now we remove all cases where we could not find a match from \texttt{using} which is \texttt{\_merge==2}. These are potentially problematic as we have no information about these persons sex or year of birth. Lucky at our current stage these are zero cases. Afterwards we remove \texttt{\_merge}.
+A new variable \texttt{\_merge} is created containing the \texttt{\_merge==} values. For now we remove all cases where we could not find a match from \texttt{using} which is \texttt{\_merge==2}. These are potentially problematic as we have no information about these persons sex or year of birth. Luckily at our current stage these are zero cases. Afterwards we remove \texttt{\_merge}.
 \begin{lstlisting}
   ** Drop if using does not match master
   drop if _merge==2
@@ -273,7 +273,7 @@ Example: merge with the generated variable highest educational achievement \text
   \begin{tikzpicture}[transform shape, rotate=10, overlay]
 \node at (7.5,-1.5) [mybox] (box) {%
     \begin{minipage}[t!]{0.35\textwidth}
-    \tiny\textcolor{black}{\texttt{In \textbf{bepgen} contains $65$ variables, but all we need is the educational achievement.}}
+    \tiny\textcolor{black}{\texttt{\textbf{bepgen} contains $65$ variables, but all we need is the educational achievement.}}
     \end{minipage}
     };
 \end{tikzpicture}
@@ -281,7 +281,7 @@ Example: merge with the generated variable highest educational achievement \text
 
 \section{Operators}
 \begin{frame}[fragile]{Operators} \index{Operators}
-Stata list the following operators, which can be used with variables. Using \texttt{var1\^{}2} every value of \texttt{var1} will be squared.
+Stata lists the following operators, which can be used with variables. Using \texttt{var1\^{}2} every value of \texttt{var1} will be squared.
 \begin{lstlisting}
  == // equals
  != // not equal ~=
