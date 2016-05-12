@@ -1,6 +1,9 @@
 StataFolien
 ===========
 
+## English Version
+Please check the en-branch located at https://github.com/JanMarvin/StataFolien/tree/en
+
 Folien zur Einführung in Stata. Diese Folien sind in der Vorbereitung auf das Sommersemester 2014 an der Ruhr-Universität Bochum entstanden. Dort sind sie in den Empiriemodulen `Empirische Arbeitsmarktforschung` und `Empirische Fragen der Familienpolitik und -ökonomik` (mit B. Hartmann) eingesetzt worden. Der Foliensatz wurde für BA-Studierende der Fakultät für Sozialwissenschaft konzipiert und orientiert sich am Wissensstand von Studierenden, die zuvor noch kein Statistikprogramm genutzt haben.
 
 ## Inhalt
