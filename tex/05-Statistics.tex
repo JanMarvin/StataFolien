@@ -1,0 +1,145 @@
+%%%
+%%% Statistics
+%%%
+\part{Statistics}
+\begin{frame}
+\thispagestyle{empty}
+\textbf{\huge{Statistics}}
+\end{frame}
+
+\begin{frame}{Statistics Contents}
+ \tableofcontents
+\end{frame}
+
+
+\section{Statistic}
+\begin{frame}[fragile]{Statistic I}
+Arithmetic mean and some additional statistics \index{Mean!mean} \index{Describe!summarize} \index{Describe!detail} \index{Mean} \index{Statistic}
+\begin{lstlisting}
+  mean height
+  summarize height
+  summarize height, detail
+\end{lstlisting}
+
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{mean returns the standard error: $s/\sqrt{n}$. summarize returns the standard deviation: $\sqrt{\sum(x-\bar{x})^2)/n}$.}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}[fragile]{Statistic II}
+Minimum, maximum, arithmetic mean, median, number of observations and quartils. \index{Minimum} \index{Minimum!min} \index{Maximum} \index{Maximum!max} \index{Mean!mean} \index{Mean} \index{Mean!arithmetic mean} \index{Mean!Median} \index{Quantile} \index{tabstat} \index{Range} \index{Range!range} \index{Quantile!q}
+\begin{lstlisting}
+  tabstat height, statistic(min max mean median p50)
+  tabstat height, statistic(min max range mean count q) by(county)
+\end{lstlisting}
+
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{range = max - min}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}[fragile]{Statistics III}
+Standard deviation, standard error, variance und interquartil range. \index{Standard deviation} \index{Standard error} \index{Variance} \index{Interquartil range} \index{tabstat} \index{Standard deviation!sd} \index{Variance!var} \index{Standard error!sem} \index{Interquartil range!iqr} \index{Quantile!q} \index{Skewness} \index{Kurtosis} \index{Skewness!skewness} \index{Kurtosis!kurtosis}
+\begin{lstlisting}
+ tabstat height, statistic(sd sem var q iqr)
+\end{lstlisting}
+Skewness and kurtosis
+\begin{lstlisting}
+  tabstat height, statistics(skewness kurtosis)
+\end{lstlisting}
+
+  \begin{tikzpicture}[transform shape, rotate=10, overlay]
+\node at (8,-1.5) [mybox] (box) {%
+    \begin{minipage}[t!]{0.35\textwidth}
+    \tiny\textcolor{black}{\texttt{iqr = q3 - q1}}
+    \end{minipage}
+    };
+\end{tikzpicture}
+\end{frame}
+
+\section{Tables}
+\begin{frame}[fragile]{Tables} \index{Table!tab} \index{Table!tab, summarize()} \index{Table}
+We already had \texttt{summarize} and \texttt{tab}, let us combine them
+\begin{lstlisting}
+  tab county, summarize(height)
+\end{lstlisting}
+\end{frame}
+
+\subsection{Cross tabs}
+\begin{frame}[fragile]{Cross tabs} \index{Table!tab} \index{Table!tab1} \index{Table!tab2} \index{Table!cross tab}
+Create a cross tab with
+\begin{lstlisting}
+  tab school county
+\end{lstlisting}
+And some more tables
+\begin{lstlisting}
+  ** tabs of each variable
+  tab1 sex county school
+  ** cross tabs of ab bc ac
+  tab2 sex county school
+\end{lstlisting}
+\end{frame}
+
+\subsection{Chi, V and Phi}
+\begin{frame}[fragile]{Cross tabs II} \index{Table!cross tab} \index{Table!$\chi^2$} \index{Table!chi-square} \index{Table!chi} \index{Table!tab} \index{Table!Cramers V} \index{Table!tab exp} \index{Table!tab col} \index{Table!tab row}
+Let us recapitulate Statistics I, we will do some tests \footnote{or see e.g. \textcite{Agresti09}.}
+\begin{lstlisting}
+** chi^2
+tab sex county, chi
+** cramers v
+tab sex county, V
+
+** manual
+tab sex county, exp col row
+** phi and for 2x2 tabs V
+di (1013*1002 - 925*1131) / (2144*1927*1938*2133)^(1/2) 
+** chi^2
+di 4071 *(-.00753735)^2
+** usual way to compute V
+di (.23128021 / 4071 * (2 - 1) )^(1/2) // V
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Numlabel}
+You can add numeric values to your variable labels \index{Label!numlabel}
+\begin{lstlisting}
+  ** numeric labels on for all variables
+  numlabel _all, add
+  ** and off
+  numlabel _all, remove
+\end{lstlisting}
+\end{frame}
+
+\section{Inference}
+\begin{frame}[fragile]{T-Test} \index{T-Test!ttest} \index{T-Test}
+And finally let us have a look at some test-statistics
+\begin{lstlisting}
+  ** compare 
+  tab sex, sum(bmi)
+  ttest bmi, by(sex)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{And much more to come \dots} \index{Regression!regress} \index{Regression!logit} \index{Regression!mlog}
+Regression
+\begin{lstlisting}
+  regress
+  logit
+  mlog
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\thispagestyle{empty}
+ To be continued.
+\end{frame}
