@@ -61,7 +61,7 @@
   \begin{itemize}
   \item Data is stored in dta-files.
   \item Data filending is .dta.
-  \item Stata dataobjects are readable only by Stata and some other statistical software e.g. R (\cite{R13}).
+  \item Stata dataobjects are readable only by Stata and some other statistical software e.g. R (\cite{R}) using readstata13 (\cite{readstata13}).
   \end{itemize}
 \end{frame}
 
@@ -90,13 +90,21 @@
     \end{minipage}
     };
 \end{tikzpicture}
-  
 \end{frame}
+
+\begin{frame}[fragile]{Importing data}\label{multistage}
+ To follow the code on this presentation you can use the Stata example dataset \texttt{multistage}. Load it on a computer with internet access
+    \begin{lstlisting}
+    webuse multistage, clear
+    \end{lstlisting}
+\end{frame}
+
+
 
 \section{do-files}
 \begin{frame}[fragile]{do-file I}
   \begin{itemize}
-  \item file header: should have informations like filename, author, creation and/or modification date, a short description of its content and for longer files a short table of contents.
+  \item file header: should contain information like filename, author, creation and/or modification date, a short description of its content and for longer files a short table of contents.
   \index{file header}
   \index{do-file}
   \index{comment}
@@ -175,6 +183,13 @@ Document your code! \index{comment}
   \begin{lstlisting}
   use "D:/Data/testdaten.dta"
   \end{lstlisting}
+  
+  or as shown on frame \ref{multistage}
+  
+  \begin{lstlisting}   
+  webuse multistage, clear
+  \end{lstlisting}
+
 
   \item Describe \index{Describe!describe}
   

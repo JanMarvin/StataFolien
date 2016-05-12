@@ -1,7 +1,7 @@
 \documentclass[hyperref={bookmarks=true}, aspectratio=43]{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[ngerman]{babel}
+\usepackage[ngerman, english]{babel}
 \usepackage{booktabs}
 \usepackage{multirow}
 \hypersetup{bookmarksopen=true,bookmarksopenlevel=3}
@@ -67,12 +67,6 @@
 
 \setbeamersize{text margin right=1cm}
 
-% Autoren Information
-\author[Garbuszus]{Jan Marvin Garbuszus}
-\title{Stata Introduction}
-\date{16. April 2013}
-\institute{}
-
 % Thanks: http://www.texample.net/tikz/examples/boxes-with-text-and-math/
 \tikzstyle{mybox} = [draw=yellow, fill=yellow!95!orange, very thick, rectangle, inner sep=10pt, inner ysep=10pt, drop shadow]
 
@@ -127,6 +121,12 @@
 
 % Deckblatt
 \begin{frame}
+
+  \author[Garbuszus]{Jan Marvin Garbuszus\thanks{I am grateful to Deniz Türker for proofreading and comments on an earlier version of this presentation.\newline
+  jan.garbuszus@ruhr-uni-bochum.de}}
+  \title{Stata Introduction}
+  \date{\today}
+  \institute{\url{https://github.com/JanMarvin/StataFolien}}
   \maketitle
 \end{frame}
 
@@ -134,7 +134,7 @@
 \begin{minipage}{11cm}
 
 \begin{itemize}
-\item \fullcite{Kohler2012}
+\item \fullcite{Kohler12en}
 \item \fullcite{Acock2012}
 \end{itemize}
 
