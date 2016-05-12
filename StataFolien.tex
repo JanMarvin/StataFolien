@@ -26,11 +26,10 @@
 
 \include{lstlisting/stata}
 
-% Praesentation wurde mit RUB Beamer template und RUB Schriftarten gehalten.
 \usetheme{boxes}
 
 
-% Bibliographie
+% Literature
 \usepackage[style=authoryear-icomp, natbib=true,
             firstinits=true, uniquename=init, maxnames=2,
             doi=false, isbn=false, clearlang=true, backend=bibtex,
@@ -61,7 +60,7 @@
 
 \pdfoptionpdfminorversion=5
 
-% Fussnoten anpassen.
+% Align footnotes
 \usepackage{hanging}
 \setbeamertemplate{footnote}{\hangpara{2em}{1}\makebox[2em][l]{\insertfootnotemark}\footnotesize\insertfootnotetext\par}
 
@@ -96,13 +95,13 @@
 \makeatother
 
 
-% Extra kleine Schrift für den Index
+% Very small font for the index
 \makeatletter
   \newcommand{\miniscule}{\@setfontsize\miniscule{4}{5}}
 \makeatother
 
 \mode<handout>{
-% Bei Handout Hintergrundfarbe auf weiß setzten
+% For handout mode change backgroundcolor to white
   \tikzstyle{mybox} = [draw=black, fill=white, rectangle, inner sep=10pt, inner ysep=10pt]
   \definecolor{Statafunction}{rgb}{0,0,0}
   \definecolor{Statacomment}{rgb}{0,0,0}
@@ -119,7 +118,7 @@
 
 \begin{document}
 
-% Deckblatt
+% Title Frame
 \begin{frame}
 
   \author[Garbuszus]{Jan Marvin Garbuszus\thanks{I am grateful to Deniz Türker for proofreading and comments on an earlier version of this presentation.\newline
@@ -141,11 +140,11 @@
 \end{minipage}
 \end{frame}
 
-\include{tex/Einstieg}
-\include{tex/Variablen}
-\include{tex/Grafiken}
-\include{tex/DatenHandling}
-\include{tex/Statistik}
+\include{tex/01-Introduction}
+\include{tex/02-Variables}
+\include{tex/03-Graphics}
+\include{tex/04-DataHandling}
+\include{tex/05-Statistics}
 
 
 \part{Index und Literatur}

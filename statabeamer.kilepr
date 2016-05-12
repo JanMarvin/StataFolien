@@ -60,10 +60,10 @@ Mode=LaTeX
 
 [item:StataFolien.tex]
 archive=true
-column=13
+column=10
 encoding=UTF-8
 highlight=LaTeX
-line=167
+line=86
 mode=LaTeX
 open=false
 order=0
@@ -80,86 +80,86 @@ order=-1
 
 [item:tex/DatenHandling.tex]
 archive=true
-column=1
+column=18
 encoding=UTF-8
 highlight=LaTeX
-line=93
+line=284
 mode=LaTeX
 open=false
 order=2
 
 [item:tex/Einstieg.tex]
 archive=true
-column=0
+column=16
 encoding=UTF-8
 highlight=LaTeX
-line=274
+line=297
 mode=LaTeX
-open=true
+open=false
 order=0
 
 [item:tex/Grafiken.tex]
 archive=true
-column=50
+column=32
 encoding=UTF-8
 highlight=LaTeX
-line=60
+line=22
 mode=LaTeX
 open=false
 order=1
 
 [item:tex/Statistik.tex]
 archive=true
-column=332
+column=11
 encoding=UTF-8
 highlight=LaTeX
-line=51
+line=47
 mode=LaTeX
 open=false
 order=-1
 
 [item:tex/Variablen.tex]
 archive=true
-column=13
+column=107
 encoding=UTF-8
 highlight=LaTeX
-line=68
+line=84
 mode=LaTeX
 open=false
 order=-1
 
 [view-settings,view=0,item:StataFolien.tex]
-CursorColumn=13
-CursorLine=167
+CursorColumn=10
+CursorLine=86
 JumpList=
-ViMarks=.,14,19,[,14,19,],14,19
+ViMarks=.,82,0,[,82,0,],82,0
 
 [view-settings,view=0,item:tex/DatenHandling.tex]
-CursorColumn=1
-CursorLine=93
+CursorColumn=18
+CursorLine=284
 JumpList=
-ViMarks=.,79,76,[,79,76,],79,80
+ViMarks=.,283,10,[,283,10,],283,10
 
 [view-settings,view=0,item:tex/Einstieg.tex]
-CursorColumn=0
-CursorLine=274
+CursorColumn=16
+CursorLine=297
 JumpList=
-ViMarks=.,270,99,[,270,99,],270,99
+ViMarks=.,297,15,[,297,15,],297,15
 
 [view-settings,view=0,item:tex/Grafiken.tex]
-CursorColumn=50
-CursorLine=60
+CursorColumn=32
+CursorLine=22
 JumpList=
-ViMarks=.,60,49,[,60,42,],60,49
+ViMarks=.,22,31,[,22,31,],22,31
 
 [view-settings,view=0,item:tex/Statistik.tex]
-CursorColumn=332
-CursorLine=51
+CursorColumn=11
+CursorLine=47
 JumpList=
-ViMarks=.,51,331,[,51,331,],51,331
+ViMarks=.,50,23,[,50,23,],50,32
 
 [view-settings,view=0,item:tex/Variablen.tex]
-CursorColumn=13
-CursorLine=68
+CursorColumn=107
+CursorLine=84
 JumpList=
-ViMarks=.,68,12,[,68,13,],68,12
+ViMarks=.,157,84,[,157,64,],157,84
